@@ -1,0 +1,48 @@
+.column {
+    background-color: var(--COLOR-GRAY--DARK);
+    min-height: 20rem;
+    color: #fff;
+    width: 33%;
+    max-width: 20rem;
+    margin: 0 0.9rem;
+    border-radius: 4px;
+    padding:0.55rem;
+}
+
+.column p {
+    margin: 0.55rem 0;
+}
+
+.column .titleWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.3rem;
+}
+
+.column .titleWrapper button {
+    all: unset;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+.column .titleWrapper button:hover {
+   background-color: var(--COLOR-GRAY-LIGHT);
+}
+ 
+.Modal {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.Modal .modalContent {
+    background-color: #fff;
+    padding: 0.60rem;
+    border-radius: 4px;
+}
