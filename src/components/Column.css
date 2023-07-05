@@ -7,6 +7,11 @@
     margin: 0 0.9rem;
     border-radius: 4px;
     padding:0.55rem;
+    border: 4px dashed transparent;
+}
+
+.column.drop{
+    border-color: var(--COLOR-GRAY-LIGHT);
 }
 
 .column p {

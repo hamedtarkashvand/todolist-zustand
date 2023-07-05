@@ -1,26 +1,35 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useStore } from '../store';
 import './Column.css';
 import Task from './Task';
+import classNames from 'classnames';
 
 const Column = ({ state }) => {
   const [text, setText] = useState('');
+  const [drop, setDrop] = useState(false);
   const [open, setOpen] = useState(false);
 
   const tasks = useStore(({ tasks }) =>
     tasks.filter((task) => task.state === state)
   );
-  
-  const { setDraggedTask, addTask , draggedTask , moveTask } = useStore();
+
+  const { setDraggedTask, addTask, draggedTask, moveTask } = useStore();
+
   return (
     <div
-      className='column'
+      className={classNames('column', { drop: drop })}
       onDragOver={(e) => {
+        setDrop(true);
         e.preventDefault();
       }}
-      onDrop={() => {        
-          moveTask(draggedTask,state);
-          setDraggedTask('')
+      onDragLeave={(e) => {
+        e.preventDefault();
+        setDrop(false);
+      }}
+      onDrop={() => {
+        moveTask(draggedTask, state);
+        setDrop(false);
+        setDraggedTask('');
       }}>
       <div className='titleWrapper'>
         <p>{state}</p>
